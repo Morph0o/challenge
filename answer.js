@@ -24,17 +24,18 @@ function split(){
 function shuffle(){
   do{
     if(deck=1){
-                newShuffle.push(firstHalf[0])
+                newShuffle.unshift(firstHalf[-1])
                 firstHalf.shift()
                 deck=2
                }else if(deck=2){
-                                newShuffle.push(secondHalf[0])
+                                newShuffle.unshift(secondHalf[-1])
                                 secondHalf.shift()
                                 deck=1
                 }
     }while(newShuffle.length != cards.length)
    
   cards = newShuffle
+  
   
 }
 }
