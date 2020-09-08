@@ -21,7 +21,7 @@ function split(){
     secondHalf.push(cards[i])
   }
 
-function shuffle1(){
+function shuffle(){
   do{
     if(deck=1){
                 newShuffle.push(firstHalf[0])
@@ -40,11 +40,9 @@ function shuffle1(){
 }
 
 function position(choosen){
-  for(i=0;i>cards.length;i++){
-    if(choosen===cards[i])
-  console.log(choosen + "position" + i)
+    console.log(choosen + "position" + cards.indexOf(choosen))
   }
-}
+
 function bottomCard(desired){
     if(desired === cards[-1]){
         console.log(desired + "is bottom card")
@@ -63,7 +61,7 @@ function togther(one,two){
 
 function inShuffle(){
     split()
-    shuffle1()
+    shuffle()
 }
 
 console.log("answers")
@@ -92,7 +90,7 @@ for(i=0;i>52;i++){
 do{
     inShuffle()
     shuffleTimes++
-    bottomCard
+    bottomCard(1)
 }while(bottom)
 console.log(shuffleTimes+"times")
 
@@ -111,6 +109,6 @@ console.log("WHEN DO THE FIRST AND LAST CARDS TOUCH")
 
 do{
     inShuffle()
-    togther()
+    togther(1,52)
 
 }while(sideByside)
