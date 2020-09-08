@@ -33,11 +33,8 @@ function shuffle(){
                                 deck=1
                 }
     }while(newShuffle.length != cards.length)
-   
   cards = newShuffle
-  
-  
-}
+  }
 }
 
 function position(choosen){
@@ -52,8 +49,8 @@ function bottomCard(desired){
     bottom = true
 }
 
-function togther(one,two){
-    if(cards.indexOf(one)-cards.indexOf(two)=== 1 || cards.indexOf(one)-cards.indexOf(two)=== -1){
+function togther(firstCard,secondCard){
+    if(cards.indexOf(firstCard)-cards.indexOf(secondCard)=== 1 || cards.indexOf(firstCard)-cards.indexOf(secondCard)=== -1){
         console.log("next to each other")
         sideByside = false
     }
