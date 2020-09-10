@@ -12,6 +12,7 @@ var shuffleTimes = 0
 for(i=1;i<=52;i++){
   cards.push(i)
 }
+console.log(cards)
 
 //spliting the deck into halfs
 function split(){
@@ -45,25 +46,44 @@ function position(choosen){
 
   // finding if the desired card is on the bottom
 function bottomCard(desired){
-    if(desired === cards.pop()){
+    if(desired === cards[53]){
         console.log(desired + "is bottom card")
-        bottom = false
+        console.log(shuffleTimes + "shuffles")
     }
-    bottom = true
 }
 // seeing if two cards are next to each other
 function togther(firstCard,secondCard){
     if(cards.indexOf(firstCard)-cards.indexOf(secondCard)=== 1 || cards.indexOf(firstCard)-cards.indexOf(secondCard)=== -1){
-        console.log("next to each other")
-        sideByside = false
+        console.log(`${firstCard}next to ${secondCard}`)
+        
+        
     }
-        sideByside = true
+
 }
 
 //the inShuffle consisting one deck being split and shuffled once 
 function inShuffle(){
-    split()
-    shuffle()
+  for(i=0;i<(cards.length/2);i++){
+    firstHalf.push(cards[i])
+  }
+  
+  for(i=cards.length/2;i<cards.length;i++){
+    secondHalf.push(cards[i])
+    }
+    
+  do{
+    if(deck=1){
+                newShuffle.unshift(firstHalf.pop())
+                deck=2
+               }else if(deck=2){
+                                newShuffle.unshift(secondHalf.pop())
+                                deck=1
+                }
+    }while(newShuffle.length != cards.length)
+  cards = newShuffle
+  firstHalf = []
+  secondHalf = []
+    
 }
 
 //answers to the questions
@@ -94,8 +114,12 @@ do{
     inShuffle()
     shuffleTimes++
     bottomCard(1)
+    if(1 === cards[53]){
+      bottom = false
+    }
+   
 }while(bottom)
-console.log(shuffleTimes)
+
 
 
 
@@ -108,12 +132,12 @@ newShuffle = []
 deck = 1
 shuffleTimes = 0
 
-for(i=1;i<52;i++){
+for(i=1;i<=52;i++){
   cards.push(i)
 }
+console.log(cards)
 
-do{
-    inShuffle()
-    togther(1,52)
 
-}while(sideByside)
+
+
+
