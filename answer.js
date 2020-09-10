@@ -27,10 +27,10 @@ function split(){
 //shuffling the halfs into a interleaving pattern
 function shuffle(){
   do{
-    if(deck=1){
+    if(deck===1){
                 newShuffle.unshift(firstHalf.pop())
                 deck=2
-               }else if(deck=2){
+               }else if(deck===2){
                                 newShuffle.unshift(secondHalf.pop())
                                 deck=1
                 }
@@ -63,26 +63,8 @@ function togther(firstCard,secondCard){
 
 //the inShuffle consisting one deck being split and shuffled once 
 function inShuffle(){
-  for(i=0;i<(cards.length/2);i++){
-    firstHalf.push(cards[i])
-  }
-  
-  for(i=cards.length/2;i<cards.length;i++){
-    secondHalf.push(cards[i])
-    }
-    
-  do{
-    if(deck=1){
-                newShuffle.unshift(firstHalf.pop())
-                deck=2
-               }else if(deck=2){
-                                newShuffle.unshift(secondHalf.pop())
-                                deck=1
-                }
-    }while(newShuffle.length != cards.length)
-  cards = newShuffle
-  firstHalf = []
-  secondHalf = []
+ split()
+ shuffle()
     
 }
 
@@ -93,8 +75,10 @@ console.log("WHAT IS THE POSITION OF THE FIRST CARD AFTER SEVEN SHUFFLES")
 
 do{
     inShuffle()
-    shuffleTimes++
-}while(shuffleTimes >7)
+    console.log(cards)
+    shuffleTimes = shuffleTimes+1
+    console.log(shuffleTimes)
+}while(shuffleTimes <=7)
 position(1)
 
 console.log("HOW MANY SHUFFLES TILL THE TOP CARD BECOMES THE BOTTOM CARD")
