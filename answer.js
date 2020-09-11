@@ -9,7 +9,7 @@ var sideByside = true
 var shuffleTimes = 0
 
 //creating the deck all 52
-for(i=1;i<=52;i++){
+for(var i=1;i<=52;i+=1){
   cards.push(i)
 }
 console.log(cards)
@@ -17,25 +17,58 @@ console.log(cards)
 //spliting the deck into halfs
 function split(){
   
-  for(i=0;i<(cards.length/2);i++){
-    firstHalf.push(cards[i])
-  }
-  for(i=cards.length/2;i<cards.length;i++){
-    secondHalf.push(cards[i])
+  for(var i=0;i<(cards.length/2);i+= 1){
+                                  if(cards[i] != undefined){
+                                    firstHalf.push(cards[i])
+                                  }
+                                    console.log(firstHalf)
+                                  }
+  for(var i=(cards.length/2);i<cards.length;i+=1){
+    if(cards[i] != undefined){
+      secondHalf.push(cards[i])
+      console.log(secondHalf)
+    }
+    
   }
 }
 //shuffling the halfs into a interleaving pattern
 function shuffle(){
+  
   do{
+    console.log("test inside shuffle do")
     if(deck===1){
-                newShuffle.unshift(firstHalf.pop())
-                deck=2
-               }else if(deck===2){
-                                newShuffle.unshift(secondHalf.pop())
-                                deck=1
+      console.log(firstHalf)
+                if(firstHalf.length!= 0){
+                  firstHalf.pop()
+                  console.log(firstHalf)
+                  console.log(newshuffle)
+                  console.log("inside undefined")
+                  deck=1
+                }else{
+                  console.log("inside firstHalf")
+                  newShuffle.unshift(firstHalf.pop())
+                  deck = 2
+                  
                 }
-    }while(newShuffle.length != cards.length)
+               }else if(deck===2){
+                 console.log("inside deck 2")
+                                if(secondHalf[secondHalf.length-1] === undefined){
+                                  secondHalf.pop()
+                                  deck=2
+                                }else{
+                                  newShuffle.unshift(secondHalf.pop())
+                                  deck=1
+                                }
+                                
+                                
+                }
+                
+    }while(newShuffle.length < 53)
   cards = newShuffle
+  firstHalf = []
+  secondHalf = []
+  
+  console.log(cards)
   
   }
 
@@ -46,7 +79,7 @@ function position(choosen){
 
   // finding if the desired card is on the bottom
 function bottomCard(desired){
-    if(desired === cards[53]){
+    if(desired === cards[51]){
         console.log(desired + "is bottom card")
         console.log(shuffleTimes + "shuffles")
     }
@@ -75,9 +108,7 @@ console.log("WHAT IS THE POSITION OF THE FIRST CARD AFTER SEVEN SHUFFLES")
 
 do{
     inShuffle()
-    console.log(cards)
-    shuffleTimes = shuffleTimes+1
-    console.log(shuffleTimes)
+    shuffleTimes++
 }while(shuffleTimes <=7)
 position(1)
 
@@ -90,7 +121,7 @@ newShuffle = []
 deck = 1
 shuffleTimes = 0
 
-for(i=1;i<=52;i++){
+for(var i=1;i<=52;i+= 1){
   cards.push(i)
 }
 
@@ -116,7 +147,7 @@ newShuffle = []
 deck = 1
 shuffleTimes = 0
 
-for(i=1;i<=52;i++){
+for(var i=1;i<=52;i+=1){
   cards.push(i)
 }
 console.log(cards)
