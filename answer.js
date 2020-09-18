@@ -45,7 +45,7 @@ function shuffle(){
                   console.log("inside undefined")
                   deck=1
                 }else{
-                  console.log("inside firstHalf")
+                  console.log("inside first Half")
                   newShuffle.unshift(firstHalf.pop())
                   deck = 2
                   
